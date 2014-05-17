@@ -111,11 +111,14 @@ end
   --end
 --end
 
-function turtle.setPosFromOrigin(x, y, z, f)
-  pos.x = x
-  pos.y = y 
-  pos.z = z
-  pos.f = f
+function turtle.setCurrentPos(x, y, z, f)
+  origin.x = x - pos.x
+  origin.y = y - pos.y
+  origin.z = z - pos.z
+  origin.f = f - pos.f
+  if origin.f > 3 then
+    origin.f = origin.f - 3
+  end
   turtle.save()
 end
 
