@@ -1,3 +1,17 @@
+local waypoints = {}
+
+function save()
+  local file = fs.open("turtle/waypoints", "w")
+  file.writeLine(textutils.serialize(waypoints))
+  file.close()
+end
+
+function load()
+  local file = fs.open("turtle/waypoints", "r")
+  waypoints = file.readAll()
+  file.close()
+end
+
 local options = {
   goto = function(self)
   --Add rest later
@@ -17,5 +31,7 @@ function new()
   local x, y, z = turtle.getCurrentPos()
   pos = {x = x, y = y, z = z}
   setmetatable(pos, options)
+  waypoints[#waypoints + 1] = pos
+  save()
   return pos
 end
