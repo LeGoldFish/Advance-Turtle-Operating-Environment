@@ -1,18 +1,20 @@
-function buildLine( xLen )
+function buildLine( xLen, recurse )
   turtle.up()
   for i = 1, xLen do
     turtle.forward()
     turtle.placeDown()
   end
-  for i = 1, xLen do
-    turtle.back()
+  if recurse then
+    for i = 1, xLen do
+     turtle.back()
+    end
+   turtle.down()
   end
-  turtle.down()
 end
 
 function buildWall( zHeight, xLen )
   for i = 1, zHeight do
-    buildLine( xLen )
+    buildLine( xLen, true )
     turtle.up()
   end
   for i = 1, zHeight do
@@ -22,7 +24,7 @@ end
 
 function buildFloor( yLen, xLen )
   for i = 1, yLen do
-    buildLine( xLen )
+    buildLine( xLen, true )
     turtle.turnRight()
     turtle.forward()
     turtle.turnLeft()
