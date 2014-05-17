@@ -8,6 +8,29 @@ for k, v in pairs( turtle )
   oldturtle[k] = turtle[k]
 end
 
+local function turtle.save()
+  local file = fs.open("turtle/origin", "w")
+  file.writeLine(textutils.serialize(origin))
+  file.close()
+  local file = fs.open("turtle/pos", "w")
+  file.writeLine(textutils.serialize(pos))
+  file.close()
+  local file = fs.open("turtle/tMap", "w")
+  file.writeLine(textutils.serialize(tMap))
+end
+
+function turtle.load()
+  local file = fs.open("turtle/origin", "r")
+  origin = textutils.unserialize(file.readAll())
+  file.close()
+  local file = fs.open("turtle/pos"), "r")
+  pos = textutils.unserialize(file.readAll())
+  file.close()
+  local file = fs.open("turtle/tMap", "r")
+  tMap = textutils.unserialize(file.readAll())
+end
+  
+
 function turtle.forward()
   if oldturtle.forward() then
     if pos.f == 0 then pos.x = pos.x + 1
