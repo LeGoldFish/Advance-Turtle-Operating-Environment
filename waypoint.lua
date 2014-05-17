@@ -1,6 +1,7 @@
-options = {
+local options = {
   goto = function(self)
   --Add rest later
+  end
   getCoords = function(self)
     return self.x, self.y, self.z
   end
