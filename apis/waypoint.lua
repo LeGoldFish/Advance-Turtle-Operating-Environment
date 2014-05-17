@@ -15,8 +15,9 @@ end
 local options = {
   goto = function(self)
   --Add rest later
-  if self.program then
-    self.program()
+    if self.program then
+     self.program()
+    end
   end
   getCoords = function(self)
     return self.x, self.y, self.z
@@ -25,13 +26,16 @@ local options = {
     local file = fs.open('pName', "r")
     self.program = loadstring(file.readAll())
   end
+  unregister = function(self)
+    waypoints[self.number] = nil
+  end
 }
 
 function new()
   local x, y, z = turtle.getCurrentPos()
-  pos = {x = x, y = y, z = z}
+  pos = {x = x, y = y, z = z, number = #waypoints + 1}
   setmetatable(pos, options)
-  waypoints[#waypoints + 1] = pos
+  waypoints[pos.number] = pos
   save()
   return pos
 end
