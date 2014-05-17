@@ -122,3 +122,7 @@ end
 function turtle.getCurrentPos()
   return origin.x + pos.x, origin.y + pos.y, origin.z + pos.z, pos.f
 end
+
+function turtle.getOrigin()
+  return origin.x, origin.y, origin.z, origin.f
+end
