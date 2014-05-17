@@ -38,6 +38,7 @@ function turtle.forward()
     elseif pos.f == 2 then pos.x = pos.x - 1
     elseif pos.f == 3 then pos.y = pos.y - 1
     end
+    turtle.save()
     return true
   else
     return false
@@ -51,6 +52,7 @@ function turtle.back()
     elseif pos.f == 2 then pos.x = pos.x + 1
     elseif pos.f == 3 then pos.y = pos.y + 1
     end
+    turtle.save()
     return true
   else
    return false
@@ -61,6 +63,7 @@ function turtle.up()
   if oldturtle.up() then
     pos.z = pos.z + 1
     return true
+    turtle.save()
   else
     return false
   end
@@ -70,6 +73,7 @@ function turtle.down()
   if oldturtle.down() then
     pos.z = pos.z - 1
     return true
+    turtle.save()
   else
     return false
   end
@@ -81,6 +85,7 @@ function turtle.turnRight()
     if pos.f > 3 then
       pos.f = 0
     end
+    turtle.save()
     return true
   else
     return false
@@ -93,6 +98,7 @@ function turtle.turnLeft()
     if pos.f < 0 then
       pos.f = 3
     end
+    turtle.save()
     return true
   else
     return false
@@ -110,6 +116,7 @@ function turtle.setPosFromOrigin(x, y, z, f)
   pos.y = y 
   pos.z = z
   pos.f = f
+  turtle.save()
 end
 
 function turtle.setOrigin(x, y, z, f)
@@ -117,6 +124,7 @@ function turtle.setOrigin(x, y, z, f)
   origin.y = y
   origin.z = z
   origin.f = f
+  turtle.save()
 end
 
 function turtle.getCurrentPos()
