@@ -7,7 +7,7 @@ local options = {
   getCoords = function(self)
     return self.x, self.y, self.z
   end
-  addProgram = function(self, pName)
+  addProgram = function(self, pName, cArgs)
     local file = fs.open('pName', "r")
     self.program = loadstring(file.readAll())
   end
