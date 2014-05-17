@@ -1,6 +1,7 @@
 local oldturtle = {}
 
 local pos = {x = 0, y = 0, z = 0, f = 0}
+local tMap = {}
 
 for k, v in pairs( turtle )
   oldturtle[k] = turtle[k]
@@ -52,9 +53,9 @@ end
 
 function turtle.turnRight()
   if oldturtle.turnRight() then
-    turtle.f = turtle.f + 1
-    if turtle.f > 3 then
-      turtle.f = 0
+    pos.f = pos.f + 1
+    if pos.f > 3 then
+      pos.f = 0
     end
     return true
   else
@@ -64,12 +65,18 @@ end
 
 function turtle.turnLeft()
   if oldturtle.turnLeft() then
-    turtle.f = turtle.f - 1
-    if turtle.f < 0 then
-      turtle.f = 3
+    pos.f = pos.f - 1
+    if pos.f < 0 then
+      pos.f = 3
     end
     return true
   else
     return false
   end
 end
+
+--function turtle.probe()
+  --if turtle.detect() then
+    --tMap[x[y[z]]] = true
+  --end
+--end
