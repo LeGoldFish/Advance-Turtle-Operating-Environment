@@ -21,3 +21,11 @@ create = function(num)
   setmetatable(slots[num], fSlot)
   return slots[num]
 end
+
+function fuel()
+  for k, v in pairs(slots) do
+    if v.isKnown() and v.isFuel then
+      return k
+    end
+  end
+end
