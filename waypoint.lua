@@ -1,9 +1,15 @@
 local options = {
   goto = function(self)
   --Add rest later
+  if self.program then
+    self.program()
   end
   getCoords = function(self)
     return self.x, self.y, self.z
+  end
+  function addProgram(self, pName)
+    local file = fs.open('pName', "r")
+    self.program = loadstring(file.readAll())
   end
 }
 
