@@ -12,3 +12,12 @@ fSlot = {
     return self.info 
   end
 }
+
+create = function(num)
+  slots[num] = {
+    isKnown = false
+    number = num
+  }
+  setmetatable(slots[num], fSlot)
+  return slots[num]
+end
