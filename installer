@@ -1,0 +1,10 @@
+if not turtle then
+  error("You cannot install ATOE on a computer!")
+
+response = http.get(raw.github.com/KingofGamesYami/Advance-Turtle-Operating-Environment/)
+for k, v in pairs( response ) do
+  local file = fs.open(k)
+  file.writeLine(v)
+  file.close()
+end
+fs.makeDir("turtle")
