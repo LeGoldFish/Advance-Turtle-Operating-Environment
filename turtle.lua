@@ -49,3 +49,27 @@ function turtle.down()
     return false
   end
 end
+
+function turtle.turnRight()
+  if oldturtle.turnRight() then
+    turtle.f = turtle.f + 1
+    if turtle.f > 3 then
+      turtle.f = 0
+    end
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.turnLeft()
+  if oldturtle.turnLeft() then
+    turtle.f = turtle.f - 1
+    if turtle.f < 0 then
+      turtle.f = 3
+    end
+    return true
+  else
+    return false
+  end
+end
