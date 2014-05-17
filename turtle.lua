@@ -105,7 +105,7 @@ end
   --end
 --end
 
-function turtle.setCurrentPos(x, y, z, f)
+function turtle.setPosFromOrigin(x, y, z, f)
   pos.x = x
   pos.y = y 
   pos.z = z
