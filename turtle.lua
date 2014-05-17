@@ -31,3 +31,21 @@ function turtle.back()
    return false
   end
 end
+
+function turtle.up()
+  if oldturtle.up() then
+    pos.z = pos.z + 1
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.down()
+  if oldturtle.down() then
+    pos.z = pos.z - 1
+    return true
+  else
+    return false
+  end
+end
