@@ -1,6 +1,7 @@
 local oldturtle = {}
 
 local pos = {x = 0, y = 0, z = 0, f = 0}
+local origin = {x = 0, y = 0, z = 0, f = 0}
 local tMap = {}
 
 for k, v in pairs( turtle )
@@ -80,3 +81,21 @@ end
     --tMap[x[y[z]]] = true
   --end
 --end
+
+function turtle.setCurrentPos(x, y, z, f)
+  pos.x = x
+  pos.y = y 
+  pos.z = z
+  pos.f = f
+end
+
+function turtle.setOrigin(x, y, z, f)
+  origin.x = x
+  origin.y = y
+  origin.z = z
+  origin.f = f
+end
+
+function turtle.getCurrentPos()
+  return origin.x + pos.x, origin.y + pos.y, origin.z + pos.z, pos.f
+end
