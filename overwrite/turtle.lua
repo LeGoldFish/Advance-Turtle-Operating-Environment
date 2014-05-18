@@ -190,7 +190,7 @@ function turtle.placeUp()
 end
 
 function turtle.placeDown()
-  if turtle.placeDown() then
+  if oldturtle.placeDown() then
     slot.update()
     return true
   else
