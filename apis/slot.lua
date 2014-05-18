@@ -1,5 +1,25 @@
 local slots = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}
 
+if not fs.exists("turtle/inventory") and fs.isDir("turtle/inventory") then
+  fs.makeDir("turtle/inventory")
+end
+
+function save()
+  for i = 1, 16 do
+    local file = fs.open("turtle/inventory/"..i, "w")
+    file.writeLine(textutils.serialize(slots[i])
+    file.close()
+  end
+end
+
+function load()
+  for i = 1, 16 do
+    local file = fs.open("turtle/inventory/"..i, "r")
+    slots[i] = file.readAll()
+    file.close()
+  end
+end
+  
 fSlot = {
   isKnown = function(self)
     if self.info then
