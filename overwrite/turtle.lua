@@ -137,3 +137,9 @@ end
 function turtle.getOrigin()
   return origin.x, origin.y, origin.z, origin.f
 end
+
+function turtle.select(num)
+  oldselect = turtle.getSelected()
+  turtle.select(num)
+  return oldselect
+end
