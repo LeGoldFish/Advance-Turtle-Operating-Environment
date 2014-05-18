@@ -170,3 +170,30 @@ function turtle.digDown()
     return false
   end
 end
+
+function turtle.place()
+  if oldturtle.place() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.placeUp()
+  if oldturtle.placeUp then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.placeDown()
+  if turtle.placeUp then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
