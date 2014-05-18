@@ -34,7 +34,7 @@ local options = {
 function new()
   local x, y, z = turtle.getCurrentPos()
   pos = {x = x, y = y, z = z, number = #waypoints + 1}
-  setmetatable(pos, options)
+  setmetatable(pos, {__index = options})
   waypoints[pos.number] = pos
   save()
   return pos
