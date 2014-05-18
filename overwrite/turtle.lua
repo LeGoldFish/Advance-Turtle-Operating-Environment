@@ -140,6 +140,33 @@ end
 
 function turtle.select(num)
   oldselect = turtle.getSelected()
-  turtle.select(num)
+  oldturtle.select(num)
   return oldselect
+end
+
+function turtle.dig()
+  if oldturtle.dig() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.digUp()
+  if oldturtle.digUp() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.digDown()
+  if oldturtle.digDown() then
+    slot.update()
+    return true
+  else
+    return false
+  end
 end
