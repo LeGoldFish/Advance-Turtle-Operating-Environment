@@ -24,6 +24,7 @@ end
 function load( name, contents )
   if fs.exists("turtle/progress/"..name) then
     file = fs.open("turtle/progress/"..name, "r")
+    file.close()
     local point = file.readAll()
     local start, end = contents:find(":checkpoint(%a+"..point.."%a+)")
     local result = contents:sub(end, #contents)
