@@ -242,3 +242,30 @@ function turtle.refuel( ... )
     return false
   end
 end
+
+function turtle.drop( ... )
+  if oldturtle.drop( ... ) then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.dropUp( ... )
+  if oldturtle.dropUp( ... ) then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.dropDown( ... )
+  if oldturtle.dropUp( ... ) then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
