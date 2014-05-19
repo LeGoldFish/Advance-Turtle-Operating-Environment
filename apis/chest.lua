@@ -42,6 +42,6 @@ function addChest( nSide )
     }
   end
   coords.slot = slot
-  setmetatable(coords, {__index = chest}
+  setmetatable(coords, {__index = chest})
   return coords
 end
