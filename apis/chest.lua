@@ -3,7 +3,8 @@ local chest = {
   addItem = function( self, nAmount, nSlot, sName )
     self.slot[nSlot].amount = self.slot[nSlot].amount + nAmount
     if not self.slot[nSlot].isKnown and sName then
-      self.slot[nSlot] = sName
+      self.slot[nSlot].name = sName
+      self.slot[nSlot].isKnown = true
     end
   end,
   
@@ -32,6 +33,13 @@ local chest = {
 function addChest( nSide )
   local coords = {turtle.getCurrentPos()}
   --find what side chest is on, do later
+  local slot = {}
+  for i = 1, 27 do
+    slot[i].amount = 0
+    slot[i].isKnown = false
+    slot[i].name = false
+  end
+  coords.slot = slot
   setmetatable(coords, {__index = chest}
   return coords
 end
