@@ -197,3 +197,12 @@ function turtle.placeDown()
     return false
   end
 end
+
+function turtle.transferTo( slot, quantity )
+  if oldturtle.transferTo(...) then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
