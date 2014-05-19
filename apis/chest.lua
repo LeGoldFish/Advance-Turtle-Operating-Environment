@@ -35,9 +35,11 @@ function addChest( nSide )
   --find what side chest is on, do later
   local slot = {}
   for i = 1, 27 do
-    slot[i].amount = 0
-    slot[i].isKnown = false
-    slot[i].name = false
+    slot[i] = {
+      amount = 0
+      isKnown = false
+      name = false
+    }
   end
   coords.slot = slot
   setmetatable(coords, {__index = chest}
