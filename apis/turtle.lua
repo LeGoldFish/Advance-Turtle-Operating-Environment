@@ -198,8 +198,8 @@ function turtle.placeDown()
   end
 end
 
-function turtle.transferTo( slot, quantity )
-  if oldturtle.transferTo(...) then
+function turtle.transferTo( ... )
+  if oldturtle.transferTo( ... ) then
     slot.update()
     return true
   else
