@@ -17,7 +17,7 @@ local chest = {
   
   save = function(self)
     local file = fs.open("turtle/chests/"..tostring(self))
-    file.writeLine(textutils.serilize(self)
+    file.writeLine(textutils.serilize(self))
     file.close()
   end,
   
