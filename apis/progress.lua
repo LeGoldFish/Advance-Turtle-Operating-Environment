@@ -11,7 +11,7 @@ local progress = {
    fs.writeLine(num)
    file.close()
   end
-end
+}
 
 function new()
   tablestuff = {
