@@ -206,3 +206,30 @@ function turtle.transferTo( ... )
     return false
   end
 end
+
+function turtle.suck()
+  if oldturtle.suck() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.suckUp()
+  if oldturtle.suckUp() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
+
+function turtle.suckDown()
+  if oldturtle.suckDown() then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
