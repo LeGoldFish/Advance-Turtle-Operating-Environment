@@ -233,3 +233,12 @@ function turtle.suckDown()
     return false
   end
 end
+
+function turtle.refuel( ... )
+  if oldturtle.refuel( ... ) then
+    slot.update()
+    return true
+  else
+    return false
+  end
+end
