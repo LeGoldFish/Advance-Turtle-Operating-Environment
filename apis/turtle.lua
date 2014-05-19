@@ -171,8 +171,8 @@ function turtle.digDown()
   end
 end
 
-function turtle.place()
-  if oldturtle.place() then
+function turtle.place( ... )
+  if oldturtle.place( ... ) then
     slot.update()
     return true
   else
