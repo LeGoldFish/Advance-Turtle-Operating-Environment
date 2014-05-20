@@ -26,7 +26,7 @@ function load( name, contents )
     file = fs.open("turtle/progress/"..name, "r")
     local point = file.readAll()
     file.close()
-    local start, end = contents:find(":checkpoint(%a+"..point.."%a+)")
+    local start, end = contents:find(":checkpoint(%a*"..point.."%a*)")
     local result = contents:sub(end, #contents)
     return result
   end
