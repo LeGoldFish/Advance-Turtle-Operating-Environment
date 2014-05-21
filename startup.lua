@@ -11,7 +11,7 @@ end
 function console.log( text )
   local x, y = console.getSize()
   for i = 1, #text / x, #text do
-    console.write( text:sub( i, i * x ) )
+    console.write( text:sub( i, i + x ) )
   end
 end
 
