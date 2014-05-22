@@ -52,6 +52,7 @@ function drawDesktop()
     maxx = 22,
     miny = 1,
     maxy = 1,
+    toggle = function() drawMenu.edit end,
   }
 end
 
