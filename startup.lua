@@ -31,6 +31,32 @@ function rightClick( x, y )
   term.setCursorPos( ox, oy )
 end
 
+DrawMenu = {
+  file = function()
+    term.setCursorPos(2, 2)
+    term.write(" [Shutdown] ")
+    clickmap.shutdown = {
+      minx = 3,
+      maxx = 12,
+      miny = 2,
+      maxy = 2,
+      toggle = function() os.shutdown() end,
+    }
+    term.setCursrPos(2, 3)
+    term.write(" [Restart] ")
+    clickmap.restart = {
+      minx = 3,
+      maxx = 11,
+      miny = 3,
+      maxy = 3,
+      toggle = function() os.reboot() end,
+    }
+    clickmap.file = nil
+  end,
+  run = function()
+}
+
+
 function drawDesktop()
   local image = paintutils.loadImage(".images/desktop")
   paintutils.drawImage( image )
@@ -43,7 +69,7 @@ function drawDesktop()
     maxx = 9,
     miny = 1,
     maxy = 1,
-    toggle = function() drawMenu.file end,
+    toggle = function() drawMenu.file() end,
   }
   term.write(" [Run] ")
   clickmap.run = {
@@ -51,7 +77,7 @@ function drawDesktop()
     maxx = 14,
     miny = 1,
     maxy = 1,
-    toggle = function() drawMenu.run end,
+    toggle = function() drawMenu.run() end,
   }
   term.write(" [Edit] ")
   clickmap.edit = {
@@ -59,7 +85,7 @@ function drawDesktop()
     maxx = 22,
     miny = 1,
     maxy = 1,
-    toggle = function() drawMenu.edit end,
+    toggle = function() drawMenu.edit() end,
   }
 end
 
