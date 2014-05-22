@@ -1,3 +1,5 @@
+local clickmap = {}
+
 function console()
   local x, y = term.getSize()
   console = window.new( term.current(), x/2, y/2, x/2, y/2 )
@@ -25,4 +27,18 @@ end
 function drawDesktop()
   local image = paintutils.loadImage(".images/desktop")
   paintutils.drawImage( image )
+  term.setCursorPos(1, 1)
+  term.setTextColor(colors.black)
+  term.setBackgroundColor(colors.cyan)
+  term.write(" [File] ")
+  term.write(" [Run] ")
+  term.write(" [Edit] ")
+end
+
+function clickCheck( event )
+  for k, v in pairs( clickmap ) do
+    if clickmap[k].maxx >= event[2] and clickmap[k].minx <= event[2] and clickmap[k].maxy >= event[3] and clickmap[k].miny >= event[3] then
+      clickmap[k].toggle()
+    end
+  end
 end
