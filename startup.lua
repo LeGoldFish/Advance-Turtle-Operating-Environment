@@ -24,6 +24,13 @@ function main()
   console.log( "started up")
 end
 
+function rightClick( x, y )
+  local ox, oy = term.getCursoPos()
+  term.setCursorPos( x, y )
+  drawMenu.rightclick()
+  term.setCursorPos( ox, oy )
+end
+
 function drawDesktop()
   local image = paintutils.loadImage(".images/desktop")
   paintutils.drawImage( image )
@@ -57,9 +64,13 @@ function drawDesktop()
 end
 
 function clickCheck( event )
-  for k, v in pairs( clickmap ) do
-    if clickmap[k].maxx >= event[2] and clickmap[k].minx <= event[2] and clickmap[k].maxy >= event[3] and clickmap[k].miny >= event[3] then
-      clickmap[k].toggle()
+  if event[2] == 1 then
+    for k, v in pairs( clickmap ) do
+      if clickmap[k].maxx >= event[3] and clickmap[k].minx <= event[3] and clickmap[k].maxy >= event[4] and clickmap[k].miny >= event[4] then
+        clickmap[k].toggle()
+      end
     end
+  else
+    rightClick( event[3], event[4] )
   end
 end
