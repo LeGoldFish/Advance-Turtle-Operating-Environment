@@ -31,8 +31,28 @@ function drawDesktop()
   term.setTextColor(colors.black)
   term.setBackgroundColor(colors.cyan)
   term.write(" [File] ")
+  clickmap.file = {
+    minx = 2,
+    maxx = 9,
+    miny = 1,
+    maxy = 1,
+    toggle = function() drawMenu.file end,
+  }
   term.write(" [Run] ")
+  clickmap.run = {
+    minx = 10,
+    maxx = 14,
+    miny = 1,
+    maxy = 1,
+    toggle = function() drawMenu.run end,
+  }
   term.write(" [Edit] ")
+  clickmap.edit = {
+    minx = 17,
+    maxx = 22,
+    miny = 1,
+    maxy = 1,
+  }
 end
 
 function clickCheck( event )
