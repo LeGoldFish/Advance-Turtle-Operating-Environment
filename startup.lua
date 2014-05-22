@@ -21,3 +21,8 @@ function main()
   console()
   console.log( "started up")
 end
+
+function drawDesktop()
+  local image = paintutils.loadImage(".images/desktop")
+  paintutils.drawImage( image )
+end
